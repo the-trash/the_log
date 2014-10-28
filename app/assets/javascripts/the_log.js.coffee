@@ -1,8 +1,10 @@
 @TheLog = do ->
   init: ->
-    console.log 'TheLog Init'
+    @enable ||= $('[data-the-log]').length
 
-@log = -> try console.log arguments...
+@log = ->
+  try
+    if TheLog.enable
+      console.log arguments...
 
-$ ->
-  do TheLog.init
+$ -> do TheLog.init

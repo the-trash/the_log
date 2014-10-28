@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ilya N. Zykin"]
   spec.email         = ["zykin-ilya@ya.ru"]
   spec.summary       = %q{JS: log() instead console.log() in your Rails App}
-  spec.description   = %q{Replace F@$ken `console.log` with `log` in your Rails App}
+  spec.description   = %q{Replace `console.log` with `log` in your Rails App}
   spec.homepage      = "https://github.com/TheProfitCMS/the_log"
   spec.license       = "MIT"
 
@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "coffee-rails"
+  spec.add_dependency "coffee-rails", '~> 0'
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"

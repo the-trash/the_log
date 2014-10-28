@@ -1,6 +1,8 @@
 # TheLog
 
-TODO: Write a gem description
+Take care of your joints. Write less, do same.
+
+Replace `console.log` with `log` in your Rails App
 
 ## Installation
 
@@ -12,20 +14,68 @@ gem 'the_log'
 
 And then execute:
 
-    $ bundle
+```
+bundle
+```
 
 Or install it yourself as:
 
-    $ gem install the_log
+```
+gem install the_log
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+**application.js**
 
-## Contributing
+```coffeescript
+//= require jquery
+//= require the_log
+```
 
-1. Fork it ( https://github.com/[my-github-username]/the_log/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+**layouts/application.html.haml**
+
+```haml
+!!!
+%html{ data: { the_log: Rails.env.development? } }
+%head
+  %title My Application
+  = stylesheet_link_tag    :application, media: :all
+  = javascript_include_tag :application
+  = csrf_meta_tags
+
+%body
+  / ....
+```
+
+**Into your Browser Console**
+
+```javascript
+log('Hello World!')
+```
+
+**Into your CoffeeScript code**
+
+```coffeescript
+# DOM 'ready' event
+$ ->
+  log 'Hello World!'
+```
+
+## TheLog and Production env
+
+Nobody wants to see `log` messages in web console in production mode.
+You can configure visibility of `log` messages with `data-the-log` param
+
+```haml
+%AnyTag{ data: { the_log: Rails.env.development? } }
+```
+
+or you can switch it in JS console
+
+```javascript
+TheLog.enable = true  // log messages will be visible
+TheLog.enable = false // there is no log messages
+```
+
+## MIT licence
