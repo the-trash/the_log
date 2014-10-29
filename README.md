@@ -75,7 +75,7 @@ or you can switch it in JS console
 
 ```javascript
 TheLog.enable = true  // log messages will be visible
-TheLog.enable = false // there is no log messages
+TheLog.enable = false // there are no log messages
 ```
 
 ## MIT licence
